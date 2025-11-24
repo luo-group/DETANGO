@@ -65,34 +65,3 @@ class DetangoModel(nn.Module):
         ss = self.LM_ss(minus_ddg.unsqueeze(-1)).squeeze(-1)
 
         return s, q, ss
-
-    #     self.LM_function = build_mlp(emb_dim, lm_hidden_dim, vocab_size, num_layers=lm_layers, dropout=dropout)
-
-    #     self.LM_stability_pred = build_mlp(emb_dim, lm_hidden_dim, vocab_size, num_layers=lm_layers, dropout=dropout)
-
-    #     self.LM_stability = build_mlp(1, ss_hidden_dim, 1, num_layers=ss_layers, dropout=dropout)
-
-    #     self.project_stability = build_mlp(emb_dim, proj_hidden_dim, emb_dim, num_layers=proj_layers, dropout=dropout)
-
-    #     self.init_weights()
-
-    # def init_weights(self):
-    #     for m in self.LM_function+self.LM_stability_pred+self.LM_stability+self.project_stability:
-    #         if isinstance(m, nn.Linear):
-    #             nn.init.xavier_normal_(m.weight) 
-    #             if m.bias is not None:
-    #                 nn.init.constant_(m.bias, 0)
-    
-    # def forward(self, repr, pos, stability):
-
-    #     pos = pos.reshape(-1)
-
-    #     emb_stability = self.project_stability(repr)
-    #     stability_pred = self.LM_stability_pred(emb_stability)
-
-    #     emb_function = repr - emb_stability
-    #     function_plausibility = self.LM_function(emb_function.detach())
-
-    #     stability_plausibility = self.LM_stability(stability.unsqueeze(-1)).squeeze(-1)
-
-    #     return stability_pred, function_plausibility, stability_plausibility
