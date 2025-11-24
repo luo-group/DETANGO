@@ -21,7 +21,7 @@ pip install torch==2.2.0 torchvision==0.17.0 torchaudio==2.2.0 --index-url https
 
 ## 🛠️ Data preprocessing
 
-To train a DETANGO model, we first need to compute the ESM-1v-predicted mutational effects and $\Delta\Delta G$ (or use experimentally-derived abundance values) for all single mutations and collect the ESM-1v's embeddings for protein residues. Using `P62993` as an example, you can execute `scripts/data_preprocessing_uniprot.sh`, which contains the code snippet shown below.
+To train a DETANGO model, we first need to compute the ESM-1v-predicted mutational effects and $\Delta\Delta G$ (or use experimentally-derived abundance values) for all single mutations and collect the ESM-1v's embeddings for protein residues. Please install FoldX locally and pass the path to the executables in the bash file. Using `P62993` as an example, you can execute `scripts/data_preprocessing_uniprot.sh`, which contains the code snippet shown below.
 
 ```bash
 #!/bin/bash
@@ -30,6 +30,7 @@ protein="P62993"
 cuda_device=1
 stability_col="foldx"
 cpus=60 # number of cpus to use for foldx
+foldx_path=scripts/foldx_20251231 # revise this path to your local foldx executable
 
 # create data directory
 mkdir -p data
@@ -46,7 +47,7 @@ python detango/initialize_esm_data.py --protein $protein --cuda $cuda_device
 # generate stability scores
 if [ "$stability_col" == "foldx" ]; then
     mkdir -p data/$protein/intermediates/foldx
-    python detango/initialize_foldx_data.py --protein $protein --cpus $cpus
+    python detango/initialize_foldx_data.py --protein $protein --cpus $cpus --foldx-path $foldx_path
 fi
 ```
 
