@@ -55,7 +55,7 @@ Note: it takes FoldX for approximately 40 minutes on 60 CPUs to calculate the $\
 
 ## 💻 Model training and Inference
 
-After collecting the required data for running DETANGO, we proceeded to train DETANGO models to disentangle functional plausibility from the evolutionary plausibility predicted by ESM-1v. Using `P62993` as an example, you can execute `scripts/model_training.sh`, which contains the code snippet shown below. Be sure to modify the protein identifier, wild-type sequence, and stability column as appropriate for your dataset.
+After collecting the required data for running DETANGO, we proceeded to train DETANGO models. Using `P62993` as an example, you can execute `scripts/model_training.sh`, which contains the code snippet shown below. Be sure to modify the protein identifier, wild-type sequence, and stability column as appropriate for your dataset.
 ```bash
 #!/bin/bash
 
