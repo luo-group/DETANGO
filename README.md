@@ -4,7 +4,7 @@
 
 First, clone the GitHub repository.
 ```bash
-git clone https://github.com/kerrding/DETANGO.git
+git clone https://github.com/luo-group/DETANGO.git
 cd DETANGO
 ```
 Then, setup the Python environment for DETANGO. We use pytorch 2.2.0 and torchvision 0.17.0, which can be installed with the compatible version for your CUDA or CPU following the instructions on the official website of PyTorch (https://pytorch.org/).
@@ -69,6 +69,19 @@ do
 done
 
 python detango/merge_results.py --protein $protein --sequence_wt $sequence_wt --stability_col $stability_col
+```
+
+## 🖊️ Citation
+>Ding, Kerr, et al. "Deconvolving mutation effects on protein stability and function with disentangled protein language models." bioRxiv (2026): 2026-02.
+```
+@article{ding2026deconvolving,
+  title={Deconvolving mutation effects on protein stability and function with disentangled protein language models},
+  author={Ding, Kerr and Li, Ziang and Tu, Tony and Luo, Jiaqi and Luo, Yunan},
+  journal={bioRxiv},
+  pages={2026--02},
+  year={2026},
+  publisher={Cold Spring Harbor Laboratory}
+}
 ```
 
 
