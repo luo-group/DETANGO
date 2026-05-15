@@ -1,0 +1,11 @@
+batch_size: 16
+lr: 0.0005
+max_epochs: 100
+lm_hidden_dim: 256
+lm_layers: 2
+ss_hidden_dim: 256
+ss_layers: 2
+proj_hidden_dim: 64
+proj_layers: 3
+dropout: 0.1
+endure: 5
